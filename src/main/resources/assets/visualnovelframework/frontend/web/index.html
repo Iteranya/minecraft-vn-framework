@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>VN Engine</title>
+    <style>
+        body { font-family: sans-serif; background-color: #333; color: #eee; text-align: center; margin-top: 5rem; }
+        h1 { color: #58a; }
+        #counter-app {
+            margin-top: 4rem;
+            padding: 2rem;
+            background-color: #444;
+            border-radius: 8px;
+            display: inline-block;
+        }
+        #counter-display {
+            font-size: 2rem;
+            color: #7c9;
+            font-weight: bold;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 1rem;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            background-color: #58a;
+            color: white;
+            margin-top: 1rem;
+        }
+        button:hover { background-color: #69b; }
+    </style>
+</head>
+<body>
+
+<h1>Success!</h1>
+<p>Your <code>index.html</code> file was served by the SimpleRouter.</p>
+
+<!-- START: New Counter Section -->
+<div id="counter-app">
+    <h2>Live Counter from Server</h2>
+    <p>Current Count: <span id="counter-display">Loading...</span></p>
+    <button id="increment-btn">Click to Increment</button>
+</div>
+<!-- END: New Counter Section -->
+
+
+<script>
+    // Get references to the HTML elements we need to interact with.
+    const counterDisplay = document.getElementById('counter-display');
+    const incrementButton = document.getElementById('increment-btn');
+
+    // This function updates the text on the page with the given count.
+    function updateCounterDisplay(count) {
+        counterDisplay.textContent = count;
+    }
+
+    // This function fetches the initial counter value when the page loads.
+    async function getInitialCount() {
+        try {
+            const response = await fetch('/api/counter'); // GET request to our new endpoint
+            const data = await response.json();
+            updateCounterDisplay(data.count);
+        } catch (error) {
+            console.error('Failed to fetch initial count:', error);
+            counterDisplay.textContent = 'Error';
+        }
+    }
+
+    // This function is called when the button is clicked.
+    async function incrementCounter() {
+        try {
+            // POST request to the increment endpoint
+            const response = await fetch('/api/counter/increment', {
+                method: 'POST'
+            });
+            const data = await response.json();
+            updateCounterDisplay(data.count); // Update the display with the new count from the server
+        } catch (error) {
+            console.error('Failed to increment count:', error);
+            counterDisplay.textContent = 'Error';
+        }
+    }
+
+    // Add an event listener to the button.
+    incrementButton.addEventListener('click', incrementCounter);
+
+    // Fetch the initial count as soon as the page is ready.
+    document.addEventListener('DOMContentLoaded', getInitialCount);
+</script>
+
+</body>
+</html>

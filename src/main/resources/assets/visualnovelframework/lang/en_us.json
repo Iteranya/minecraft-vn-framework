@@ -1,0 +1,13 @@
+{
+  "itemGroup.visualnovelframework": "Example Mod Tab",
+  "block.visualnovelframework.example_block": "Example Block",
+  "item.visualnovelframework.example_item": "Example Item",
+
+  "visualnovelframework.configuration.title": "Visual Novel Framework Configs",
+  "visualnovelframework.configuration.section.visualnovelframework.common.toml": "Visual Novel Framework Configs",
+  "visualnovelframework.configuration.section.visualnovelframework.common.toml.title": "Visual Novel Framework Configs",
+  "visualnovelframework.configuration.items": "Item List",
+  "visualnovelframework.configuration.logDirtBlock": "Log Dirt Block",
+  "visualnovelframework.configuration.magicNumberIntroduction": "Magic Number Text",
+  "visualnovelframework.configuration.magicNumber": "Magic Number"
+}
