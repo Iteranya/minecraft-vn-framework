@@ -1,6 +1,6 @@
 package com.artesparadox.vn.vnEngine.router;
 
-import com.artesparadox.vn.Const;
+import com.artesparadox.vn.vnEngine.dataclass.Const;
 import com.google.gson.Gson;
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
@@ -179,7 +179,7 @@ public class SimpleRouter implements HttpHandler {
             Path destinationFile = webRoot.resolve(fileName);
             System.out.println(Const.LOG_PREFIX + "  -> Checking for: " + destinationFile.getFileName());
 
-            if (Files.notExists(destinationFile)) {
+            if (Files.notExists(destinationFile) || true) { // Make this true for development
                 System.out.println(Const.LOG_PREFIX + "     -> File is MISSING. Attempting to copy from JAR...");
                 String internalPath = Const.INTERNAL_ASSETS_PATH + fileName;
                 // Use SimpleRouter.class to find the resource within the JAR

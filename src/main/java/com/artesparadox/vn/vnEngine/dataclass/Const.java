@@ -1,4 +1,4 @@
-package com.artesparadox.vn;
+package com.artesparadox.vn.vnEngine.dataclass;
 
 public final class Const {
 
@@ -17,6 +17,10 @@ public final class Const {
      * The sub-directory path for the web front-end files.
      */
     public static final String WEB_SUBDIR = "frontend/web";
+    /**
+     * The sub-directory path for the script files.
+     */
+    public static final String SCRIPTS_SUBDIR = "script";
 
     /**
      * The prefix used for all console log messages from the web server.

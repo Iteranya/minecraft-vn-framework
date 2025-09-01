@@ -1,6 +1,6 @@
 package com.artesparadox.vn.vnEngine;
 
-import com.artesparadox.vn.Const;
+import com.artesparadox.vn.vnEngine.dataclass.Const;
 import com.artesparadox.vn.vnEngine.router.SimpleRouter;
 import com.sun.net.httpserver.HttpServer;
 import net.minecraft.server.MinecraftServer;
